@@ -1,5 +1,7 @@
 const imagens =['bobrossparrot', 'explodyparrot', 'fiestaparrot', 'metalparrot', 'revertitparrot', 'tripletsparrot', 'unicornparrot'];
 
+let cartasSelecionadas = [];
+
 let quantidadeCartas = 0;
 
 function iniciarJogo() {
@@ -23,7 +25,7 @@ function gerarCartas() {
     const baralho = [];
     for (let i=0; i < (quantidadeCartas / 2); i++) {
         const carta = `
-            <div onclick="virarCarta()" class="carta">
+            <div onclick="virarCarta(this)" class="carta">
                 <img class="frente" src="imgs/back.png" />
                 <img class="verso" src='imgs/${imagens[i]}.gif'
             </div>
@@ -39,6 +41,24 @@ function gerarCartas() {
     } 
 }    
 
-function virarCarta() {
+function virarCarta(carta) {
+    if (cartasSelecionadas.length >= 2 || cartasSelecionadas.includes(carta)) return
+    cartasSelecionadas.push(carta)
+    carta.classList.add('virada')
 
+    if (cartasSelecionadas.length === 2 && cartasSelecionadas[0].innerHTML === cartasSelecionadas[1].innerHTML) {
+        cartasSelecionadas[0].setAttribute('onclick', ' ')
+        cartasSelecionadas[1].setAttribute('onclick', ' ')
+        cartasSelecionadas = [];
+    }
+
+    if (cartasSelecionadas.length === 2 && cartasSelecionadas[0].innerHTML !== cartasSelecionadas[1].innerHTML) {
+        setTimeout(()=>{
+            cartasSelecionadas[0].classList.remove('virada')
+            cartasSelecionadas[1].classList.remove('virada')
+            cartasSelecionadas = [];
+        },1000)
+    }
+    
 }
+
