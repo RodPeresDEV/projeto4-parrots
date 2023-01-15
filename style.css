@@ -10,7 +10,6 @@ header {
     justify-content: center;
     align-items: center;
     margin: 40px;
-    background-color: aqua;
 }
 
 .carta img {
@@ -44,6 +43,8 @@ header {
 
 .carta {
     display: flex;
+    align-items: center;
+    justify-content: center;
     width: 117px;
     height: 146px;
     background-color: #A7E9AF; 
