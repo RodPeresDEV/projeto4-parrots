@@ -3,13 +3,15 @@ body {
 }
 
 header {
-    color: #75B79E;
-    font-size: 56px;
+    font-family: 'Roboto', sans-serif;
     font-weight: 700;
     display: flex;
-    justify-content: center;
     align-items: center;
-    margin: 40px;
+    justify-content: center;
+    color: #75B79E;
+    margin: 50px auto 50px auto;
+    font-size: 56px;
+    text-align: center;
 }
 
 .carta img {
@@ -67,6 +69,18 @@ header {
 .carta.virada {
     transform: rotateY(180deg);
 }
+
 .verso{
     transform: rotateY(-180deg);
+}
+
+@media (max-width:600px){
+    .tabuleiro{
+        width: 30%;
+        margin: 0 auto;
+        flex-direction: column;
+    }
+    .carta:last-child{
+        margin-bottom: 40px;
+    }
 }
