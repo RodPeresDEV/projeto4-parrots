@@ -29,9 +29,9 @@ function gerarCartas() {
     const baralho = [];
     for (let i=0; i < (quantidadeCartas / 2); i++) {
         const carta = `
-            <div onclick="virarCarta(this)" class="carta">
-                <img class="frente" src="imgs/back.png" />
-                <img class="verso" src='imgs/${imagens[i]}.gif'
+            <div data-test="card" onclick="virarCarta(this)" class="carta">
+                <img data-test="face-down-image" class="frente" src="imgs/back.png" />
+                <img data-test="face-up-image" class="verso" src='imgs/${imagens[i]}.gif'
             </div>
         `
         baralho.push(carta)
